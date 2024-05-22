@@ -1,34 +1,31 @@
 import axios from "axios";
 import HeroSection from "../Components/Common/HeroSection";
 import { useContext, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { DataContext } from "../DataProcessing/DataProcessing";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { auth, setAuth } = useContext(DataContext);
-
+  const navigate = useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        // eslint-disable-next-line
-        `${process.env.REACT_APP_SERVER_API}/register`,
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      const { data } = await axios.post("/register", {
+        name,
+        email,
+        password,
+      });
       if (data?.error) {
-
         toast.error(data.error);
       } else {
-        localStorage.setItem("auth",JSON.stringify(data))
-        setAuth({...auth,token:data.token, user:data.token})
+        localStorage.setItem("auth", JSON.stringify(data));
+        setAuth({ ...auth, token: data.token, user: data.token });
         toast.success("Registration Successful");
+        navigate("/");
       }
       console.log(data.error);
     } catch (err) {
@@ -74,7 +71,6 @@ export default function Register() {
           </form>
         </div>
       </div>
-      <Toaster />
     </div>
   );
 }

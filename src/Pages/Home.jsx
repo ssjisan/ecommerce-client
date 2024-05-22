@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <HeroSection title="Home" />
-      <pre>{JSON.stringify(auth)}</pre>
+      <pre>{JSON.stringify(auth,null,4)}</pre>
     </div>
   );
 }
