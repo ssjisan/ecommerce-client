@@ -9,7 +9,7 @@ export default function CategoryList() {
     showModal,
     setSelectedCategory,
     setUpdateName,
-    showRemoveModal
+    showRemoveModal,
   } = useContext(DataContext);
 
   return (
@@ -50,7 +50,7 @@ export default function CategoryList() {
                       </li>
                       <li
                         onClick={() => {
-                          showRemoveModal();
+                          showRemoveModal()
                           setSelectedCategory(data);
                         }}
                       >

@@ -6,29 +6,30 @@ export default function CategoriesHandler() {
   const [name, setName] = useState("");
   const [categories, setCategories] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isRemoveConfirmationModalOpen, setIsRemoveConfirmationModalOpen] = useState(false);
+  const [isRemoveConfirmationModalOpen, setIsRemoveConfirmationModalOpen] =
+    useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [updateName, setUpdateName] = useState("");
   const showModal = () => {
     setIsModalOpen(true);
   };
-  
+
   const handleOk = () => {
     setIsModalOpen(false);
   };
-  
+
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  
-  const showRemoveModal = ()=>{
-    setIsRemoveConfirmationModalOpen(true)
-  }
-  
+
+  const showRemoveModal = () => {
+    setIsRemoveConfirmationModalOpen(true);
+  };
+
   const handleRemoveModalCancel = () => {
     setIsRemoveConfirmationModalOpen(false);
   };
-  
+
   // Load Category
   useEffect(() => {
     loadCategories();
@@ -43,7 +44,7 @@ export default function CategoriesHandler() {
         setCategories(data);
       }
     } catch (err) {
-      toast.error(err);
+      toast.error(err.message);
     }
   };
 
@@ -62,7 +63,7 @@ export default function CategoriesHandler() {
         setName("");
       }
     } catch (err) {
-      toast.error(err);
+      toast.error(err.message);
     }
   };
 
@@ -82,7 +83,7 @@ export default function CategoriesHandler() {
         handleCancel();
       }
     } catch (err) {
-      toast.error(err);
+      toast.error(err.message);
     }
   };
 
@@ -99,7 +100,7 @@ export default function CategoriesHandler() {
         setIsRemoveConfirmationModalOpen(false);
       }
     } catch (err) {
-      toast.error(err);
+      toast.error(err.message);
     }
   };
 
@@ -120,6 +121,6 @@ export default function CategoriesHandler() {
     isRemoveConfirmationModalOpen,
     showRemoveModal,
     handleRemoveModalCancel,
-    handleRemove
+    handleRemove,
   };
 }

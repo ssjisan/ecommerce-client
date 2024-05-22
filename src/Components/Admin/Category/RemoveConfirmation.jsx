@@ -3,8 +3,11 @@ import { useContext } from "react";
 import { DataContext } from "../../../DataProcessing/DataProcessing";
 
 export default function RemoveConfirmation() {
-  const { isRemoveConfirmationModalOpen, handleRemoveModalCancel, updateName, handleRemove } =
-    useContext(DataContext);
+  const {
+    isRemoveConfirmationModalOpen,
+    handleRemoveModalCancel,
+    handleRemove,
+  } = useContext(DataContext);
   return (
     <Modal
       title="Confirmation"
@@ -13,10 +16,23 @@ export default function RemoveConfirmation() {
       footer={null}
     >
       <div className="d-flex flex-column gap-5">
-      <h3>Remove {updateName} ! Are you sure ?</h3>
-      <button type="submit" className="btn btn-success" onClick={handleRemove}>
-        Update
-      </button>
+        <h3 style={{textAlign:"center"}}>Are you sure ?</h3>
+        <div className="d-flex gap-3 justify-content-end">
+          <button
+            type="submit"
+            className="btn btn-outline-secondary"
+            onClick={handleRemove}
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="btn btn-danger"
+            onClick={handleRemove}
+          >
+            Remove
+          </button>
+        </div>
       </div>
     </Modal>
   );
