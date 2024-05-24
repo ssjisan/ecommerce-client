@@ -28,6 +28,17 @@ export default function AdminNavbar() {
             Products
           </Link>
         </li>
+        <li className="nav-item">
+          <Link
+             className={`${
+                path === "/admin-dashboard/add-product" ? "nav-link  active" : "nav-link "
+            }`}
+            aria-current="page"
+            to="/admin-dashboard/add-product"
+          >
+            Add Product
+          </Link>
+        </li>
       </ul>
     </div>
   );

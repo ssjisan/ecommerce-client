@@ -11,6 +11,8 @@ import SecretPage from "../Pages/SecretPage";
 import AdminDashboard from "../Pages/AdminDashboard";
 import Category from "../Pages/Category";
 import Product from "../Pages/Product";
+import AddProduct from "../Pages/AddProduct";
+import UpdateProduct from "../Pages/UpdateProduct";
 
 export default function MainRouters() {
   return (
@@ -26,6 +28,8 @@ export default function MainRouters() {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-dashboard/category" element={<Category />} />
           <Route path="/admin-dashboard/products" element={<Product />} />
+          <Route path="/admin-dashboard/add-product" element={<AddProduct />} />
+          <Route path="/admin-dashboard/product/:slug" element={<UpdateProduct />} />
           <Route path="/secret" element={<SecretPage />} />
         </Route>
         <Route path="*" element={<ErrorPage />} replace />
